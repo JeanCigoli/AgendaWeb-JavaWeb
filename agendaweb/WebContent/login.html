@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Agenda Web</title>
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+	</head>
+	<body class="bg-dark">
+		<!-- conteiner da página  -->
+		<div class="container">
+		
+			<!-- card do login -->
+			<div class="card card-login mx-auto mt-5" style="width: 28rem;">
+			
+				<img src="./imagens/login.jpg" class="card-img-top">
+				
+				<!-- corpo do login -->
+				<div class="card-body">
+					
+					<h3 class="text-primary">Autenticação</h3>
+					<p>Para garantir a segurança dos seus dados é necessário a sua autenticação.</p>
+					<hr/>
+					<form action="AutenticarServlet" method="post">
+						<div class="form-group">
+							<label>Usuário:</label>
+							<input type="email" name="email" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Senha:</label>
+							<input type="password" name="senha" class="form-control">
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Entrar no sistema</button>
+					</form>
+				</div>
+				
+				<!-- rodapé do login -->
+				<div class="card-footer">
+					<div class="text-right">
+						<a class="d-block" data-toggle="modal" data-target="#cadastro_usuario" href="#">Crie sua conta aqui.</a>
+						<a class="d-block" href="#">Esqueceu sua senha?</a>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<!-- modal de cadastro de usuário -->
+		<div class="modal fade" tabindex="-1" role="dialog" id="cadastro_usuario">
+		
+		  <div class="modal-dialog" role="document">
+		  
+		    <div class="modal-content">
+		    
+		      <div class="modal-header">
+		        <h5 class="modal-title">Cadastro de usuário</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      
+		      	<form id="formulario_cadastro" action="CadastroUsuarioServlet" method="post">
+				      <div class="modal-body">
+				      	<!-- Lista de Erros. Visível somente quando houverem erros -->
+				      	<div id="alerta_erro">
+				      		<ul id="lista_erros"></ul>
+				      	</div>
+				        <div class="form-row">
+				        	<div class="form-group col-md-12">
+				        		<label for="nome">Nome:</label>
+				        		<input id="nome" name="nome" class="form-control" type="text">
+				        	</div>
+				        </div>
+				        <div class="form-row">
+				        	<div class="form-group col-md-12">
+				        		<label for="email">E-mail:</label>
+				        		<input id="email" name="email" class="form-control" type="email">
+				        	</div>
+				        </div>
+				        <div class="form-row">
+				        	<div class="form-group col-md-6">
+				        		<label for="senha">Senha:</label>
+				        		<input id="senha" name="senha" class="form-control" type="password">
+				        	</div>
+				        	<div class="form-group col-md-6">
+				        		<label for="conf_senha">Confirme sua senha:</label>
+				        		<input id="conf_senha" name="conf_senha" class="form-control" type="password">
+				        	</div>
+				        </div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				        <button id="bt_criar_usuario" type="submit" class="btn btn-primary">Criar nova conta</button>
+				      </div>
+		      	</form>
+		    </div>
+		  </div>
+		</div>
+		
+		<script type="text/javascript" src="./js/valida_usuario.js"></script>	
+		<script type="text/javascript" src="./jquery/jquery-3.4.0.min.js"></script>
+		<script type="text/javascript" src="./bootstrapjs/bootstrap.min.js"></script>
+		
+	</body>
+</html>
